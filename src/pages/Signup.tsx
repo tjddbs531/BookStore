@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signup } from "../api/auth.api";
 import { useAlert } from "../hooks/useAlert";
-
 export interface SignupProps {
     email: string;
     password: string;
