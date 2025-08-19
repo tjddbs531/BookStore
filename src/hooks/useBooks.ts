@@ -1,37 +1,40 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom"
-import type { Book } from "../models/book.model";
-import type { Pagination } from "../models/pagination.model";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { fetchBooks } from "../api/books.api";
 import { QUERYSTRING } from "../constants/querystring";
 import { LIMIT } from "../constants/pagination";
 
 export const useBooks = () => {
-    const location = useLocation();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
 
-    const [books, setBooks] = useState<Book[]>([]);
-    const [pagination, setPagination] = useState<Pagination>
-    ({
-        totalCount : 0,
-        currentPage: 1
-    });
+  const categoryId = params.get(QUERYSTRING.CATEGORY_ID);
+  const news = params.get(QUERYSTRING.NEWS);
+  const currentPage = params.get(QUERYSTRING.PAGE);
 
-    const [isEmpty, setIsEmpty] = useState(true);
+  const {
+    data: booksData,
+    isLoading: isBooksLoading,
+    isFetching,           // 필요하면 로딩 스피너 미세제어용
+  } = useQuery({
+    queryKey: ["books", { q: location.search }], // v5 객체 인자
+    queryFn: () =>
+      fetchBooks({
+        category_id: categoryId ? Number(categoryId) : undefined,
+        news: news ? true : undefined,
+        currentPage: currentPage ? Number(currentPage) : 1,
+        limit: LIMIT,
+      }),
+    staleTime: 60_000,     // 선택: 1분 동안 fresh
+    gcTime: 5 * 60_000,    // 선택: 5분 동안 캐시 유지 (v4의 cacheTime)
+    keepPreviousData: true // 페이지 이동 시 이전 데이터 유지(선택)
+  });
 
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-
-        fetchBooks({
-            category_id: params.get(QUERYSTRING.CATEGORY_ID) ? Number(params.get(QUERYSTRING.CATEGORY_ID)) : undefined,
-            news: params.get(QUERYSTRING.NEWS) ? true : undefined,
-            currentPage: params.get(QUERYSTRING.PAGE) ? Number(params.get(QUERYSTRING.PAGE)) : 1,
-            limit: LIMIT,
-        }).then(({books, pagination}) => {
-            setBooks(books);
-            setPagination(pagination);
-            setIsEmpty(books.length == 0);
-        });
-    }, [location.search]);
-
-    return { books, pagination, isEmpty };
+  return {
+    books: booksData?.books ?? [],
+    pagination: booksData?.pagination,
+    isEmpty: (booksData?.books?.length ?? 0) === 0,
+    isBooksLoading,
+    isFetching,
+  };
 };

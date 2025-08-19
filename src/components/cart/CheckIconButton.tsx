@@ -9,7 +9,6 @@ interface Props {
 function CheckIconButton({isChecked, onCheck} : Props) {
     return <CheckIconButtonStyle onClick={onCheck}>{isChecked ? 
     <FaRegCheckCircle /> : <FaRegCircle />}</CheckIconButtonStyle>;
-    
 }
 
 const CheckIconButtonStyle = styled.button`

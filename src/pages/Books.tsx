@@ -9,7 +9,9 @@ import { useBooks } from "../hooks/useBooks";
 
 function Books(){
 
-    const { books, pagination, isEmpty } = useBooks();
+    const { books, pagination, isEmpty, isBooksLoading } = useBooks();
+
+    console.log(isBooksLoading);
 
     console.log('books', books);
     console.log('pagination', pagination);
@@ -22,9 +24,9 @@ function Books(){
             <BooksFilter />
             <BooksViewSwitcher />
             </div>
-            {!isEmpty && <BooksList books={books}/>}
+            {!isEmpty && books && <BooksList books={books}/>}
             {isEmpty && <BooksEmpty />}
-            {!isEmpty && <Pagination pagination={pagination}/>}
+            {!isEmpty && pagination && <Pagination pagination={pagination}/>}
         </BooksStyle>
         </>
     );
