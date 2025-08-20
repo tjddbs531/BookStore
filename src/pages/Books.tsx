@@ -6,15 +6,19 @@ import BooksEmpty from "../components/books/BookEmpty";
 import Pagination from "../components/books/Pagination";
 import BooksViewSwitcher from "../components/books/BooksViewSwitcher";
 import { useBooks } from "../hooks/useBooks";
+import Loading from "../components/common/Loading";
 
 function Books(){
 
     const { books, pagination, isEmpty, isBooksLoading } = useBooks();
 
-    console.log(isBooksLoading);
+    if(isEmpty) {
+        return <BooksEmpty />
+    }
 
-    console.log('books', books);
-    console.log('pagination', pagination);
+    if(!books || !pagination || isBooksLoading){
+        return <Loading />
+    }
 
     return (
         <>
@@ -24,9 +28,8 @@ function Books(){
             <BooksFilter />
             <BooksViewSwitcher />
             </div>
-            {!isEmpty && books && <BooksList books={books}/>}
-            {isEmpty && <BooksEmpty />}
-            {!isEmpty && pagination && <Pagination pagination={pagination}/>}
+            <BooksList books={books}/>
+            <Pagination pagination={pagination}/>
         </BooksStyle>
         </>
     );

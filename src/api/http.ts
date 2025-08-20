@@ -35,7 +35,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
 
 export const httpClient = createClient();
 
-//공통 유청 부분
+//공통 요청 부분
 
 type RequestMethod = "get" | "post" | "put" | "delete";
 

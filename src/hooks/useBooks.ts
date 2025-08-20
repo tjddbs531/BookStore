@@ -15,9 +15,9 @@ export const useBooks = () => {
   const {
     data: booksData,
     isLoading: isBooksLoading,
-    isFetching,           // 필요하면 로딩 스피너 미세제어용
+    isFetching,         
   } = useQuery({
-    queryKey: ["books", { q: location.search }], // v5 객체 인자
+    queryKey: ["books", { q: location.search }], 
     queryFn: () =>
       fetchBooks({
         category_id: categoryId ? Number(categoryId) : undefined,
@@ -25,9 +25,9 @@ export const useBooks = () => {
         currentPage: currentPage ? Number(currentPage) : 1,
         limit: LIMIT,
       }),
-    staleTime: 60_000,     // 선택: 1분 동안 fresh
-    gcTime: 5 * 60_000,    // 선택: 5분 동안 캐시 유지 (v4의 cacheTime)
-    keepPreviousData: true // 페이지 이동 시 이전 데이터 유지(선택)
+    staleTime: 60_000,     
+    gcTime: 5 * 60_000,   
+    keepPreviousData: true 
   });
 
   return {

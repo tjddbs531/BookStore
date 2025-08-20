@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import OrderList from "./pages/OrderList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ToastContainer from "./components/common/toast/ToastContainer";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
     <BookStoreThemeProvider>
         <RouterProvider router={router} /> 
+        <ToastContainer />
     </BookStoreThemeProvider>
     </QueryClientProvider>
   );
