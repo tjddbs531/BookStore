@@ -34,7 +34,7 @@ function BookItem({ book, view } : Props) {
     );
 }
 
-const BookItemStyle = styled.div<Pick<Props, "view">>`
+export const BookItemStyle = styled.div<Pick<Props, "view">>`
     a{
     display: flex;
     flex-direction: ${({view}) => (view == "grid" ? "column" : "row")};
@@ -87,7 +87,7 @@ const BookItemStyle = styled.div<Pick<Props, "view">>`
             font-weight: 700;
             border: 1px solid ${({theme}) => theme.color.border};
             border-radius: ${({theme}) => theme.borderRadius.default};
-            padding: 4px; 12px;
+            padding: 4px 12px;
             position: absolute;
             bottom: 16px;
             right: 16px;

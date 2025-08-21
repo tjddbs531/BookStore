@@ -5,7 +5,7 @@ import App from "./App.tsx";
 async function mountApp() {
   if (import.meta.env.MODE === "development") {
     const { worker } = await import("./mock/browser");
-    await worker.start(); // 첫 요청 전에 모킹 준비
+    await worker.start();
   }
 
   const rootEl = document.getElementById("root");

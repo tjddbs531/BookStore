@@ -18,17 +18,7 @@ export interface LoginProps {
 
 function Login(){
     const { userLogin } = useAuth();
-
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-
-    // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //     console.log(email, password)
-    // }
-
     const { register, handleSubmit, formState: { errors }, } = useForm<LoginProps>();
-
     const onSubmit = (data: LoginProps) => {
         userLogin(data);
     };
@@ -40,12 +30,12 @@ function Login(){
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                     <InputText placeholder="이메일" inputType="email" 
-                    {...register("email", { required: true})}/>
+                    {...register("email", { required: true})} inputMode="email"/>
                     {errors.email && <p className="error-text">이메일을 입력해주세요</p>}
                 </fieldset>
                 <fieldset>
                     <InputText placeholder="비밀번호" inputType="password"
-                    {...register("password", { required: true})}/>
+                    {...register("password", { required: true})} inputMode="text"/>
                     {errors.password && <p className="error-text">비밀번호를 입력해주세요</p>}
                 </fieldset>
                 <fieldset>
