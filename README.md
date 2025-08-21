@@ -15,25 +15,24 @@ BookStore는 **도서 쇼핑몰 웹 서비스**로, 회원 인증부터 도서 �
 
 ---
 
-## 폴더 구조
-``
+## 📂 폴더 구조
+```plaintext
 src
-┣ api/ # API 연동 모듈 (axios client, fetcher 등)
-┣ assets/ # 정적 자원 (images 등)
-┃ ┗ images/
-┣ components/ # 공통 및 페이지 단위 컴포넌트
-┣ constants/ # 상수 값 정의 (쿼리스트링 키 등)
-┣ context/ # 전역 Context (예: ThemeContext 등)
-┣ hooks/ # 커스텀 훅
-┣ mock/ # Mock Service Worker (MSW) 핸들러
-┣ models/ # 데이터 타입 정의 (interface, type)
-┣ pages/ # 라우트 페이지 컴포넌트
-┣ store/ # 전역 상태 관리 (Zustand store)
-┣ style/ # 전역 스타일, 테마
-┣ utils/ # 공통 유틸 함수
-┗ App.tsx / main.tsx (엔트리 포인트)
-``
----
+ ┣ api/          # API 연동 모듈 (axios client, fetcher 등)
+ ┣ assets/       # 정적 자원 (images 등)
+ ┃ ┗ images/
+ ┣ components/   # 공통 및 페이지 단위 컴포넌트
+ ┣ constants/    # 상수 값 정의 (쿼리스트링 키 등)
+ ┣ context/      # 전역 Context (예: ThemeContext 등)
+ ┣ hooks/        # 커스텀 훅
+ ┣ mock/         # Mock Service Worker (MSW) 핸들러
+ ┣ models/       # 데이터 타입 정의 (interface, type)
+ ┣ pages/        # 라우트 페이지 컴포넌트
+ ┣ store/        # 전역 상태 관리 (Zustand store)
+ ┣ style/        # 전역 스타일, 테마
+ ┣ utils/        # 공통 유틸 함수
+ ┗ App.tsx / main.tsx (엔트리 포인트)
+```
 
 ## 백엔드 연동
 - 강의에서 제공된 **Node.js + DB 기반 백엔드 서버**와 REST API 연동  
