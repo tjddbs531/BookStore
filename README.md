@@ -1,11 +1,11 @@
-# 📚 BookStore
+#  BookStore
 
 BookStore는 **도서 쇼핑몰 웹 서비스**로, 회원 인증부터 도서 목록·상세·장바구니·주문까지 전 과정을 구현한 프로젝트입니다.  
 신입 프론트엔드 개발자로서 **상태 관리, 인증, UI 패턴, 데이터 흐름**을 실제 서비스 형태로 구현하며 학습한 결과물입니다.
 
 ---
 
-## 🛠 기술 스택
+##  기술 스택
 - **Frontend**: React, TypeScript, styled-components, react-router-dom
 - **상태 관리**: Zustand, React Query
 - **Form 관리**: react-hook-form
@@ -15,7 +15,7 @@ BookStore는 **도서 쇼핑몰 웹 서비스**로, 회원 인증부터 도서 �
 
 ---
 
-## 📂 폴더 구조
+##  폴더 구조
 ```plaintext
 src
  ┣ api/          # API 연동 모듈 (axios client, fetcher 등)
@@ -34,14 +34,14 @@ src
  ┗ App.tsx / main.tsx (엔트리 포인트)
 ```
 
-## 🔗 백엔드 연동
+##  백엔드 연동
 - 강의에서 제공된 **Node.js + DB 기반 백엔드 서버**와 REST API 연동  
 - 회원 인증(JWT), 도서, 장바구니, 주문 등 주요 도메인 데이터 처리  
 - 일부 기능(리뷰, 베스트셀러)은 **MSW(Mock Service Worker)**로 모킹하여 개발 및 테스트  
 
 ---
 
-## ✨ 주요 기능
+##  주요 기능
 - **회원 인증**
   - 로그인, 회원가입, 비밀번호 초기화
   - JWT 토큰 기반 인증, Zustand 전역 상태 관리
@@ -60,7 +60,7 @@ src
 
 ---
 
-## 📈 학습/적용한 것
+##  학습/적용한 것
 - **전역 스타일 관리**: styled-components + sanitize.css  
 - **테마 시스템**: ThemeContext로 라이트/다크 모드 전환  
 - **데이터 흐름 관리**: API → hooks → 컴포넌트 props  
@@ -71,7 +71,7 @@ src
 
 ---
 
-📸 스크린샷
+ 스크린샷
 메인 페이지
 <img width="1920" height="2185" alt="메인화면" src="https://github.com/user-attachments/assets/75ed6621-93b2-4076-9ab3-5558d3a23ebb" />
 
@@ -82,7 +82,7 @@ src
 <img width="1920" height="917" alt="주문서 작성" src="https://github.com/user-attachments/assets/21ae2f7f-9b28-45e1-9d42-47a1763a48ec" />
 
 
-## 📌 프로젝트 회고
+##  프로젝트 회고
 **Keep**
 - 인증~주문까지 전 과정 구현 경험  
 - 데이터 흐름에 맞춘 설계 및 상태 관리  
@@ -100,7 +100,7 @@ src
 
 ---
 
-## 🚀 실행 방법
+##  실행 방법
 ```bash
 # 의존성 설치
 npm install
